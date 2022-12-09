@@ -1,0 +1,1 @@
+const URL = 'mongodb+srv://Aswines:GdHUomss873zUkfZ@mini-project.vdxmyq7.mongodb.net/Users?retryWrites=true&w=majority'
