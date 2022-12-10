@@ -3,12 +3,12 @@ const router = express.Router()
 
 router.route('/dashboard')
                 .get((req,res)=>{
-                    res.send("admin dashboard")
+                    res.status(200).render('adminDashboard')
                 })
 
 router.route('/dashboard/user/:id')
                 .get((req,res)=>{
-                    res.send("admin single user")
+                    res.status(200).render('adminSingleUserEdit')
                 })
                 .post((req,res)=>{
                     res.send("admin new user")

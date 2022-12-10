@@ -3,7 +3,7 @@ const router = express.Router()
 
 router.route('/login')
                 .get((req,res)=>{
-                    res.send('hello')
+                    res.status(200).render('login')
                 })
                 .post((req,res)=>{
                     res.send(req.body)
