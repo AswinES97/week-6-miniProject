@@ -15,6 +15,11 @@
 </head>
 
 <body>
+    {{#if admin}}
+        {{>admin-nav}}
+    {{else}}
+        {{>user-nav}}
+    {{/if}}
     {{{body}}}
 </body>
 
