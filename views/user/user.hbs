@@ -1,0 +1,53 @@
+{{!-- {{>modal}} --}}
+<link rel="stylesheet" href="/css/portfolio.css">
+
+<body id="page-top">
+   
+    <!-- Page Content-->
+    <div class="container-fluid p-0">
+        <!-- About-->
+        <section class="resume-section" id="about">
+            <div class="resume-section-content">
+                <h1 class="text-primary mb-0">
+                    {{userData.userData.name}}
+                    <span style="color:#f5deb3;"></span>
+                </h1>
+                <p >Age: <span style="color: rgb(161, 161, 161);" class="lead ">{{userData.userData.age}}</span></p>
+                <p>About Me: <span style="color: rgb(161, 161, 161);" class="lead ">{{userData.userData.description}}</span></p>
+            
+                </div>
+            </div>
+        </section>
+        <section class="resume-section" id="contactme">
+            <div class="resume-section-content">
+
+                <address>Address: <span style="color: rgb(207, 207, 207);">{{userData.userData.address}}, {{userData.userData.state}}, {{userData.userData.postcode}}</span></address>
+                <p>Email: <span style="color: rgb(207, 207, 207);">{{userData.email}}</span></p>
+                <p>Phone No: <span style="color: rgb(207, 207, 207);">{{userData.userData.phoneNo}}</span></p>
+                
+            </div>
+        </section>
+    </div>
+   
+   {{!-- <script>
+        $("#submit-form").submit((e) => {
+            e.preventDefault()
+            $.ajax({
+                url: "https://script.google.com/macros/s/AKfycbwGOw5_WP-4F9NWYUZZ4o2gjwkTFooyb7l--D4Y4GkA7FK5l2_1w6GQh7CX4gzfCnNR/exec",
+                data: $("#submit-form").serialize(),
+                method: "post",
+                success: function (response) {
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error: function (err) {
+                    alert("Something Error")
+
+                }
+            })
+        })
+    </script> --}}
+</body>
+
+</html>

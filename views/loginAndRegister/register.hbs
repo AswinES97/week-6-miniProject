@@ -9,46 +9,40 @@
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                         <h4 class="text-right">Profile Settings</h4>
                                 </div>
-                                <form action="{{user._id}}" method="post">
+                                <form action="/register/{{id}}" enctype="multipart/form-data" method="post">
                                         <div class="row mt-2">
                                                 <div class="col-md-6"><label class="labels">Name</label><input
                                                                 type="text" class="form-control"
-                                                                placeholder="first name" name="name"
-                                                                value="{{user.userData.name}}"></div>
-                                                <div class="col-md-12"><label class="labels">Email ID</label><input
-                                                                type="email" class="form-control"
-                                                                placeholder="enter email id" value="{{user.email}}"
-                                                                name="email"></div>
+                                                                placeholder="first name" name="name"></div>
                                                 <div class="col-md-6"><label class="labels">Age</label><input
-                                                                type="number" class="form-control" placeholder="Age"
-                                                                value="{{user.userData.age}}" name="age"></div>
+                                                                type="number" class="form-control"
+                                                                placeholder="Age" name="age"></div>
                                         </div>
                                         <div class="row mt-3">
                                                 <div class="col-md-12"><label class="labels">Mobile Number</label><input
                                                                 type="number" class="form-control"
-                                                                placeholder="enter phone number"
-                                                                value="{{user.userData.phoneNo}}" name="phnno"></div>
+                                                                placeholder="enter phone number" name="phnno"></div>
                                                 <div class="col-md-12"><label class="labels">Address
                                                         </label><input type="text" class="form-control"
-                                                                placeholder="enter address"
-                                                                value="{{user.userData.address}}" name="address"></div>
+                                                                placeholder="enter address" name="address"></div>
                                                 <div class="col-md-12"><label class="labels">State</label><input
                                                                 type="text" class="form-control" placeholder="state"
-                                                                value="{{user.userData.state}}" name="state"></div>
+                                                                name="state"></div>
                                                 <div class="col-md-12"><label class="labels">Postcode</label><input
                                                                 type="text" class="form-control" placeholder="postcode"
-                                                                value="{{user.userData.postcode}}" name="postcode"></div>
+                                                                name="postcode"></div>
                                                 <div class="col-md-12"><label class="labels">Image</label><input
-                                                                type="file" value="upload" class="form-control"
+                                                                type="file" value="upload" class="form-control" 
                                                                 name="image"></div>
                                                 <div class="col-md-12"><label class="labels">Description</label></div>
                                                 <textarea style="resize: :none;" name="description" id="" cols="20"
-                                                        rows="5">{{user.userData.description}}</textarea>
+                                                        rows="5"></textarea>
                                         </div>
 
                                         <div class="mt-5 text-center"><button class="btn btn-primary profile-button"
                                                         type="submit">Save
                                                         Profile</button></div>
+                                        <a href="/login">Login?</a>
                                 </form>
                         </div>
                 </div>
