@@ -1,18 +1,43 @@
 const db = require('../connection/connection')
+const { ADMIN_COLLECTION, USER_COLLECTION } = require('../connection/collections');
 
-async function login(loginData) {
-    const admin = 'admin@123'
-    if (loginData.email == admin) {
-        const adminData = await db.get().collection('admin').findOne({ email: admin })
-        if (adminData.password == loginData.password)
-            return { val: 'admin' }
-    } else {
-        const [userData] = await db.get().collection('users').find({ email: loginData.email }).project({ email: 1, password: 1, }).toArray()
-        if (userData.password == loginData.password)
-            return { val: 'user', id: userData._id }
-    }
-    return {val:'wrong credentials'}
+function login(loginData) {
+    return new Promise(async (resolve, reject) => {
+        let credentials = {
+            email: loginData.email,
+            password: loginData.password
+        }
+        await db
+            .get()
+            .collection(ADMIN_COLLECTION)
+            .findOne({ email: credentials.email })
+            .then(response => {
+                if (response != null && response.password == loginData.password) {
+                    resolve({ val: 'admin' })
+                } else {
+                    return
+                }
+            })
+            .catch(err => {
+                reject(err)
+            })
 
+        await db
+            .get()
+            .collection(USER_COLLECTION)
+            .findOne({ email: credentials.email })
+            .then(async response => {
+                if (response != null) {
+                    resolve({ val: 'user', id: response._id, hash: response.hash })
+                } else {
+                    resolve({val:'wrong credentials'})
+
+                }
+            })
+            .catch(err => {
+                reject(err)
+            })
+    })
 }
 
 module.exports = {

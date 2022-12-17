@@ -1,11 +1,22 @@
 <link rel="stylesheet" href="css/style.css">
+<script defer src="js/pre-register.js"></script>
 
 <div class="main">
     <p class="sign" align="center">Register</p>
     <form class="form1" action="/preregister" method="post">
-        <input class="un " type="text" align="center" placeholder="Email" name="email">
-        <input class="pass" type="password" align="center" placeholder="Password" name="password">
-        <input class="pass" type="password" align="center" placeholder="Confirm Password" name="password">
-        <button class="submit" type="submit">Submit</button>
+        <input class="un " id="email" onkeyup="validateEmail()" type="text" align="center" placeholder="Email"
+            name="email">
+        <span style="color: red;" id="email-error"></span>
+        <input class="pass" type="password" id="password" onkeyup="validatePassword()" align="center"
+            placeholder="Password" name="password">
+        <span style="color: red;" id="password-error"></span>
+        <input class="pass" type="password" id="confirm-password" onkeyup="confirmPassword()" align="center"
+            placeholder="Confirm Password">
+        <span style="color: red;" id="confirm-password-error"></span>
+        <button class="submit" onclick="return submitForm()" type="submit">Submit</button>
+        {{#if emailExist}}
+        <span style="color: red;" id="submit-error">Email exists!</span>
+        {{/if}}
+        <span style="color: red;" id="submit-error"></span>
     </form>
 </div>

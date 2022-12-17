@@ -10,7 +10,7 @@ async function onServer() {
         if(err) return console.log("Error connecting Db: ",err.codeName);
 
         server.listen(PORT, () => {
-            console.log(`Server listning on http://localhost:${PORT}/login`)
+            console.log(`Server listning on http://localhost:${PORT}/`)
         })
     })
 }

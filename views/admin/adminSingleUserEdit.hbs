@@ -9,7 +9,7 @@
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                         <h4 class="text-right">Profile Settings</h4>
                                 </div>
-                                <form action="{{user._id}}" method="post">
+                                <form action="{{user._id}}" method="post" enctype="multipart/form-data">
                                         <div class="row mt-2">
                                                 <div class="col-md-6"><label class="labels">Name</label><input
                                                                 type="text" class="form-control"
@@ -37,7 +37,8 @@
                                                                 value="{{user.userData.state}}" name="state"></div>
                                                 <div class="col-md-12"><label class="labels">Postcode</label><input
                                                                 type="text" class="form-control" placeholder="postcode"
-                                                                value="{{user.userData.postcode}}" name="postcode"></div>
+                                                                value="{{user.userData.postcode}}" name="postcode">
+                                                </div>
                                                 <div class="col-md-12"><label class="labels">Image</label><input
                                                                 type="file" value="upload" class="form-control"
                                                                 name="image"></div>

@@ -1,4 +1,3 @@
-
 <!-- Page Content-->
 <div class="container-fluid p-0">
     <!-- About-->
@@ -16,12 +15,13 @@
                             <div class="row d-flex justify-content-between align-items-center">
 
                                 <div class="col-md-2 col-lg-2 col-xl-2">
-                                    <img src="" class="img-fluid rounded-3" alt="Cotton T-shirt">
+                                    <img src="/img/{{_id}}.png" class="img-fluid rounded-3">
                                 </div>
 
                                 <div class="col-md-3 col-lg-3 col-xl-3">
                                     <p class="lead fw-normal mb-2">{{userData.name}}</p>
-                                    <p><span class="text-muted">Age :</span>{{userData.age}} <span class="text-muted"><br> Address:
+                                    <p><span class="text-muted">Age :</span>{{userData.age}} <span
+                                            class="text-muted"><br> Address:
                                         </span>{{userData.address}}</p>
                                 </div>
 
@@ -34,7 +34,13 @@
                                     <a href="#!" class="text-danger"><i class="fa-light fa-user-pen"></i></a>
                                 </div>
                                 <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                    <form action="/admin/dashboard/delete/{{_id}}" method="post" class="text-danger"><button type="submit"><i class="fas fa-trash fa-lg"></i></button></form>
+                                    <form action="/admin/dashboard/user/{{_id}}" class="text-danger"><button
+                                            type="submit">Edit </i></button></form>
+                                </div>
+
+                                <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                    <form action="/admin/dashboard/delete/{{_id}}" method="post" class="text-danger">
+                                        <button type="submit"><i class="fas fa-trash fa-lg"></i></button></form>
                                 </div>
 
                             </div>
@@ -43,6 +49,7 @@
                     {{/each}}
                 </div>
             </div>
+            <button class="btn btn-primary ml-5"><a href="dashboard/add" class=" text-white"> Add New User</a></button>
         </div>
     </section>
 </div>

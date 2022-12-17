@@ -1,14 +1,14 @@
 const { MongoClient } = require("mongodb");
+const { MONGO_ATLAS } = require('./collections')
 
 const state = {
   db: null
 }
 
 async function connect(done) {
-  const URL = 'mongodb+srv://aswin:ja06QOKl7Yrta1rA@mini-project.vdxmyq7.mongodb.net/?retryWrites=true&w=majority'
   const dbname = 'miniproject'
 
-  await MongoClient.connect(URL)
+  await MongoClient.connect(MONGO_ATLAS)
     .then((data)=>{
       console.log("Connected to Database");
       state.db = data.db(dbname)

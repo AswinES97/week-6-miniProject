@@ -1,9 +1,11 @@
 const express = require('express')
 const axios = require('axios')
 const {getUserData} = require('../model/user.model')
+const { adminSession, userLoggedSession } = require('../helpers/session-helpers')
 const router = express.Router()
 
 router.route('/home/:id')
+    .all(userLoggedSession,adminSession)
     .get(async (req, res) => {
         let quote = '';
         let author = ''
@@ -17,14 +19,20 @@ router.route('/home/:id')
             console.error(error);
         })
         
-        let userData = await getUserData(id)
-        res.render("user/user", {
-            admin: false,
-            user: true,
-            quote,
-            author,
-            userData
-        })
+       await getUserData(id)
+       .then(userData=>{
+           res.render("user/user", {
+               admin: false,
+               user: true,
+               id,
+               quote,
+               author,
+               userData
+           })
+       })
+       .catch(err=>{
+        console.log(err);
+       })
     })
 
 module.exports = router
