@@ -1,59 +1,61 @@
 <link rel="stylesheet" href="/css/style.css">
+<script defer src="/js/pre-register.js"></script>
 
 <div class="container rounded bg-white mt-5 mb-5">
-        <div class="row">
-                <div class="col-md-3 border-right">
-                </div>
-                <div class="col-md-5 border-right">
-                        <div class="p-3 py-5">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <h4 class="text-right">Profile Settings</h4>
-                                </div>
-                                <form action="add" method="post" enctype="multipart/form-data">
-                                        <div class="row mt-2">
-                                                <div class="col-md-6"><label class="labels">Name</label><input
-                                                                type="text" class="form-control"
-                                                                placeholder="first name" name="name"
-                                                                ></div>
-                                                <div class="col-md-12"><label class="labels">Email ID</label><input
-                                                                type="email" class="form-control"
-                                                                placeholder="enter email id"
-                                                                name="email"></div>
-                                                <div class="col-md-6"><label class="labels">Age</label><input
-                                                                type="number" class="form-control" placeholder="Age"
-                                                                name="age"></div>
-                                        </div>
-                                        <div class="row mt-3">
-                                                <div class="col-md-12"><label class="labels">Mobile Number</label><input
-                                                                type="number" class="form-control"
-                                                                placeholder="enter phone number"
-                                                                name="phnno"></div>
-                                                <div class="col-md-12"><label class="labels">Address
-                                                        </label><input type="text" class="form-control"
-                                                                placeholder="enter address"
-                                                                name="address"></div>
-                                                <div class="col-md-12"><label class="labels">State</label><input
-                                                                type="text" class="form-control" placeholder="state"
-                                                                name="state"></div>
-                                                <div class="col-md-12"><label class="labels">Postcode</label><input
-                                                                type="text" class="form-control" placeholder="postcode"
-                                                                name="postcode">
-                                                </div>
-                                                <div class="col-md-12"><label class="labels">Image</label><input
-                                                                type="file" value="upload" class="form-control"
-                                                                name="image"></div>
-                                                <div class="col-md-12"><label class="labels">Description</label></div>
-                                                <textarea style="resize: :none;" name="description" id="" cols="20"
-                                                        rows="5"></textarea>
-                                        </div>
-
-                                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button"
-                                                        type="submit">Save
-                                                        Profile</button></div>
-                                </form>
-                        </div>
-                </div>
+    <div class="row">
+        <div class="col-md-3 border-right">
         </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                </div>
+                <form action="add" method="post" enctype="multipart/form-data">
+                    <div class="row mt-2">
+                        <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control"
+                                placeholder="first name" name="name"></div>
+                        <div class="col-md-6"><label class="labels">Age</label><input type="number" class="form-control"
+                                placeholder="Age" name="age"></div>
+                        <div class="col-md-12"><label class="labels">Email ID</label><input class="form-control"
+                                id="email" onkeyup="validateEmail()" type="text" align="center" placeholder="Email"
+                                name="email">
+                            <span style="color: red;" id="email-error"></span>
+                        </div>
+                        <div class="col-md-12"><label class="labels">Password</label> <input class="form-control"
+                                type="password" id="password" onkeyup="validatePassword()" align="center"
+                                placeholder="Password" name="password">
+                            <span style="color: red;" id="password-error"></span>
+                            <span style="color: red;" id="email-error"></span>
+                        </div>
+                        <div class="col-md-12"><label class="labels">Confirm Password</label><input class="form-control" type="password"
+                                id="confirm-password" onkeyup="confirmPassword()" align="center"
+                                placeholder="Confirm Password">
+                            <span style="color: red;" id="email-error"></span>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12"><label class="labels">Mobile Number</label><input type="number"
+                                class="form-control" placeholder="enter phone number" name="phnno"></div>
+                        <div class="col-md-12"><label class="labels">Address
+                            </label><input type="text" class="form-control" placeholder="enter address" name="address">
+                        </div>
+                        <div class="col-md-12"><label class="labels">State</label><input type="text"
+                                class="form-control" placeholder="state" name="state"></div>
+                        <div class="col-md-12"><label class="labels">Postcode</label><input type="text"
+                                class="form-control" placeholder="postcode" name="postcode">
+                        </div>
+                        <div class="col-md-12"><label class="labels">Image</label><input type="file" value="upload"
+                                class="form-control" name="image"></div>
+                        <div class="col-md-12"><label class="labels">Description</label></div>
+                        <textarea style="resize: :none;" name="description" id="" cols="20" rows="5"></textarea>
+                    </div>
+
+                    <div class=" mt-5 text-center"><button class="btn btn-primary profile-button" type="submit" onclick="return submitForm()">Save
+                            Profile</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 </div>
 </div>

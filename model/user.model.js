@@ -25,7 +25,6 @@ function preregister(data,hash) {``
 }
 function registerUser(user, id) {
     return new Promise(async (resolve, reject) => {
-        let rtn = null;
         const userData = {
             name: user.name,
             age: Number(user.age),

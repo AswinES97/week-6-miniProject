@@ -1,5 +1,6 @@
 const express = require('express')
 const path = require('path')
+const compression = require('compression')
 const logger = require('morgan')
 const hbs = require('express-handlebars')
 const fileUpload = require('express-fileupload')
@@ -18,7 +19,9 @@ app.engine('hbs', hbs.engine({
 }))
 
 app.set('view engine', 'hbs')
+
 app.set('views', path.join(__dirname, 'views'))
+app.use(compression())
 app.use(nocache())
 app.use(logger('dev'))
 app.use(express.json())
@@ -37,10 +40,7 @@ app.use(session({
 app.use('/', loginRegRouter)
 app.use('/user', userRouter)
 app.use('/admin', adminRouter)
-app.use('/logout', (req, res) => {
-    req.session.destroy()
-    res.status(200).redirect('/')
-})
+
 app.use('/*', (req, res) => {
     res.status(404).render('404/404')
 })

@@ -39,7 +39,7 @@
                                 </div>
 
                                 <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                    <form action="/admin/dashboard/delete/{{_id}}" method="post" class="text-danger">
+                                    <form action="/admin/dashboard/delete/{{_id}}" onclick="return confirm('Doy you want to delelte {{userData.name}}')" method="post" class="text-danger">
                                         <button type="submit"><i class="fas fa-trash fa-lg"></i></button></form>
                                 </div>
 

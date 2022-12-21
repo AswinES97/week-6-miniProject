@@ -30,6 +30,7 @@ router.post('/login', userSession, adminSession, async (req, res) => {
                             req.session.login = true
                             req.session.user = false
                             res.redirect('/')
+                            return
                         }
                     })
             }
@@ -67,7 +68,7 @@ router.route('/preregister')
                             res.status(403).redirect('/preregister')
                         }
                         else {
-                            req.session.user = true
+                            // req.session.user = true
                             res.status(201).redirect(`/register/${response}`)
                         }
                     })
@@ -85,7 +86,7 @@ router.route('/preregister')
     })
 
 router.route('/register/:id')
-    .all(userLoggedSession, adminSession)
+    .all(userSession, adminSession)
     .get((req, res) => {
         let id = req.params.id
         res.status(200).render('loginAndRegister/register', { id })
@@ -95,14 +96,19 @@ router.route('/register/:id')
         await registerUser(req.body, id)
             .then(response => {
                 if (!response) res.send('not added')
-                else res.status(201).redirect(`/user/home/${id}`)
+                else {
+                    if (req.files) {
+                        req.files.image.mv(path.join(__dirname, '../', 'public', 'img', `${id}.png`))
+                    }
+                    req.session.user = true
+                    req.session.userId = id
+                    res.status(201).redirect(`/user/home/${id}`)
+                }
             })
             .catch(err => {
                 console.log('register error :', err);
             })
-        if (req.files) {
-            req.files.image.mv(path.join(__dirname, '../', 'public', 'img', `${id}.png`))
-        }
+
     })
 
 module.exports = router
